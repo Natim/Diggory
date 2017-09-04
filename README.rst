@@ -1,7 +1,6 @@
 Diggory
 =======
 
-|travis| |master-coverage|
 
 .. |travis| image:: https://travis-ci.org/Natim/Diggory.svg?branch=master
     :target: https://travis-ci.org/Natim/Diggory
@@ -14,6 +13,8 @@ Diggory
 *Diggory* is a web service that gives you information about the upcoming Holiday.
 
 It uses the information from `workalendar <https://github.com/novafloss/workalendar>`_ to do so.
+
+You'd better use `Mozilla Publicly observed Holiday <https://calendar.google.com/calendar/b/1/embed?src=mozilla.com_34303638303130392d353231@resource.calendar.google.com&ctz=Europe/Paris>`_ for now.
 
 * `Issue tracker <https://github.com/Natim/Diggory/issues>`_
 
