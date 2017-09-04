@@ -8,6 +8,7 @@ from diggory.calendar import (
     Netherlands,
     NewZealand,
     Poland,
+    Sweden,
     UnitedStates,
 )
 
@@ -163,7 +164,7 @@ def test_new_zealand_year_2017():
         date(2017, 4, 14),  # Good Friday
         date(2017, 4, 17),  # Easter Monday
         date(2017, 4, 25),  # Anzac
-        date(2017, 6, 5),  # Queens Birthday
+        date(2017, 6, 5),   # Queens Birthday
         date(2017, 10, 23),  # Labour Day
         date(2017, 12, 25),  # XMas Day
         date(2017, 12, 26),  # XMas Day (Boxing)
@@ -186,4 +187,28 @@ def test_poland_year_2017():
         date(2017, 11, 11),  # Independance Day
         date(2017, 12, 25),  # XMas Day
         date(2017, 12, 26),  # XMas Day (Boxing)
+    }, "{}".format(cal.holidays(2017))
+
+
+def test_sweden_year_2017():
+    cal = Sweden()
+    holidays = cal.holidays_set(2017)
+    assert holidays == {
+        date(2017, 1, 1),   # New Year
+        date(2017, 1, 2),   # New Year (observed)
+        date(2017, 1, 6),   # Epiphany
+        date(2017, 4, 14),  # Good Friday
+        date(2017, 4, 16),  # Easter
+        date(2017, 4, 17),  # Easter Monday
+        date(2017, 5, 1),   # Labour Day
+        date(2017, 5, 25),  # Ascension
+        date(2017, 6, 4),   # Pentcost Sunday
+        date(2017, 6, 6),   # National Day
+        date(2017, 6, 23),  # Midsummer's Eve
+        date(2017, 6, 24),  # Midsummer's Day
+        date(2017, 11, 4),  # All saints
+        date(2017, 12, 24),  # XMas Eve
+        date(2017, 12, 25),  # XMas Day
+        date(2017, 12, 26),  # XMas Day (Boxing)
+        date(2017, 12, 31),  # New Year Eve's
     }, "{}".format(cal.holidays(2017))
