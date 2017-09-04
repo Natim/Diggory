@@ -64,3 +64,6 @@ distclean: clean
 
 maintainer-clean: distclean
 	rm -fr .venv/ .tox/
+
+serve: install
+	.venv/bin/pserve diggory.ini --reload

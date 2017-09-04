@@ -16,13 +16,18 @@ with codecs.open(os.path.join(here, 'CONTRIBUTORS.rst'),
 
 
 REQUIREMENTS = [
-    'cornice',
+    'kinto',
+    'waitress',
     'workalendar',
 ]
 
 DEPENDENCY_LINKS = []
 
-ENTRY_POINTS = {}
+ENTRY_POINTS = {
+    'paste.app_factory': [
+        'main = diggory:main',
+    ],
+}
 
 
 setup(name='diggory',
