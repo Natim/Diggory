@@ -19,7 +19,7 @@ class Australia(WAustralia):
 
 
 class NewZealand(WAustralia):
-    "New Zealand"
+    name = "New Zealand"
     include_queens_birthday = True
     include_labour_day_october = True
 

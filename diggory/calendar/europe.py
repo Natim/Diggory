@@ -18,6 +18,8 @@ __all__ = (
     'Spain', 'Sweden', 'UnitedKingdom'
 )
 
+UnitedKingdom.name = "United Kingdom"
+
 
 class France(WorkalendarFrance, ShiftMixin):
     include_whit_monday = False   # Mozilla Solidarity day

@@ -22,3 +22,6 @@ __all__ = (
     UnitedKingdom,
     UnitedStates,
 )
+
+
+CALENDARS = {getattr(c, 'name', c.__name__): c for c in __all__}
