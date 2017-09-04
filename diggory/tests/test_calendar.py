@@ -1,5 +1,11 @@
 from datetime import date
-from diggory.calendar import Australia, Canada, UnitedStates
+from diggory.calendar import (
+    Australia,
+    Canada,
+    Denmark,
+    France,
+    UnitedStates,
+)
 
 
 def test_usa_year_2017():
@@ -60,4 +66,44 @@ def test_canada_year_2017():
         date(2017, 11, 11),  # Remembrance Day
         date(2017, 12, 25),  # XMas Eve (Observed)
         date(2017, 12, 26),  # XMas Day (Boxing)
+    }, "{}".format(cal.holidays(2017))
+
+
+def test_denmark_year_2017():
+    cal = Denmark()
+    holidays = cal.holidays_set(2017)
+    assert holidays == {
+        date(2017, 1, 1),   # New Year
+        date(2017, 4, 9),   # Palm Sunday
+        date(2017, 4, 13),  # Maundy Thursday
+        date(2017, 4, 14),  # Good Friday
+        date(2017, 4, 16),  # Easter
+        date(2017, 4, 17),  # Easter Monday
+        date(2017, 5, 25),  # Ascension
+        date(2017, 6, 4),   # Pentcost Sunday
+        date(2017, 6, 5),   # Whit Monday
+        date(2017, 5, 12),  # Great Prayer Day
+        date(2017, 12, 24),  # XMas Eve
+        date(2017, 12, 25),  # XMas Eve (Observed)
+        date(2017, 12, 26),  # XMas Day (Boxing)
+        date(2017, 12, 31),  # New Year Eve's
+    }, "{}".format(cal.holidays(2017))
+
+
+def test_france_year_2017():
+    cal = France()
+    holidays = cal.holidays_set(2017)
+    assert holidays == {
+        date(2017, 1, 1),   # New Year
+        date(2017, 1, 2),   # New Year (Observed)
+        date(2017, 4, 17),  # Easter Monday
+        date(2017, 5, 1),   # Fete du travail
+        date(2017, 5, 8),   # 8 mai 1945
+        date(2017, 5, 25),  # Ascension
+        date(2017, 7, 14),  # Fête Nationale
+        date(2017, 8, 15),  # Assumption
+        date(2017, 11, 1),  # La Toussaint
+        date(2017, 11, 10),  # Armistice 39 Observed
+        date(2017, 11, 11),  # Armistice 39
+        date(2017, 12, 25),  # XMas Day
     }, "{}".format(cal.holidays(2017))
