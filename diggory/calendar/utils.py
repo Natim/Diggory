@@ -3,6 +3,8 @@ from datetime import date, timedelta
 
 
 class ShiftMixin(object):
+    shift_forward = False
+
     # Shift day mechanism
     # These days won't be shifted to next MON or previous FRI
     shift_exceptions = ()
@@ -22,8 +24,14 @@ class ShiftMixin(object):
             if day in exceptions:
                 continue
             if day.weekday() == SAT:
-                new_holidays.append((day - timedelta(days=1),
-                                     label + " (Observed)"))
+                if self.shift_forward:
+                    # Next monday
+                    new_holidays.append((day + timedelta(days=2),
+                                         label + " (Observed)"))
+                else:
+                    # Previous friday
+                    new_holidays.append((day - timedelta(days=1),
+                                         label + " (Observed)"))
             elif day.weekday() == SUN:
                 new_holidays.append((day + timedelta(days=1),
                                      label + " (Observed)"))

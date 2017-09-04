@@ -2,6 +2,7 @@ from datetime import date
 from diggory.calendar import (
     Australia,
     Canada,
+    Belgium,
     Denmark,
     France,
     Germany,
@@ -249,4 +250,23 @@ def test_united_kingdom_year_2017():
         date(2017, 8, 28),  # Summer Bank Holiday
         date(2017, 12, 25),  # XMas Day
         date(2017, 12, 26),  # XMas Day (Boxing)
+    }, "{}".format(cal.holidays(2017))
+
+
+def test_belgium_year_2017():
+    cal = Belgium()
+    holidays = cal.holidays_set(2017)
+    assert holidays == {
+        date(2017, 1, 1),   # New Year
+        date(2017, 1, 2),   # New Year (observed)
+        date(2017, 4, 17),  # Easter Monday
+        date(2017, 5, 1),   # Early May Bank Holiday
+        date(2017, 5, 25),  # Ascension
+        date(2017, 6, 5),   # Whit Monday
+        date(2017, 7, 21),  # Belgium National Holiday
+        date(2017, 8, 15),  # Assumption
+        date(2017, 11, 1),  # All saints
+        date(2017, 11, 11),  # Armistice Day
+        date(2017, 11, 13),  # Armistice Day (Observed)
+        date(2017, 12, 25),  # XMas Day
     }, "{}".format(cal.holidays(2017))

@@ -1,4 +1,5 @@
 from workalendar.core import WesternCalendar
+from workalendar.europe.belgium import Belgium as WorkalendarBelgium
 from workalendar.europe.denmark import Denmark
 from workalendar.europe.france import France as WorkalendarFrance
 from workalendar.europe.germany import Saxony
@@ -12,7 +13,7 @@ from .utils import ShiftMixin
 
 
 __all__ = (
-    'Denmark', 'France', 'Germany', 'Netherlands', 'Poland',
+    'Belgium', 'Denmark', 'France', 'Germany', 'Netherlands', 'Poland',
     'Spain', 'Sweden', 'UnitedKingdom'
 )
 
@@ -56,6 +57,19 @@ class Poland(WorkalendarPoland):
         (5, 3, 'Constitution Day'),
         (11, 11, 'Independence Day'),
     )
+
+
+class Belgium(WorkalendarBelgium, ShiftMixin):
+    shift_new_years_day = True
+    shift_forward = True
+
+    def get_calendar_holidays(self, year):
+        """
+        Will return holidays and their shifted days
+        """
+        days = super(Belgium, self).get_calendar_holidays(year)
+        days = self.shift(days, year)
+        return days
 
 
 class Sweden(WorkalendarSweden):
