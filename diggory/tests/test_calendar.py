@@ -4,6 +4,7 @@ from diggory.calendar import (
     Canada,
     Denmark,
     France,
+    Germany,
     UnitedStates,
 )
 
@@ -107,3 +108,27 @@ def test_france_year_2017():
         date(2017, 11, 11),  # Armistice 39
         date(2017, 12, 25),  # XMas Day
     }, "{}".format(cal.holidays(2017))
+
+
+def test_germany_year_2017():
+    cal = Germany()
+    holidays = cal.holidays_set(2017)
+    assert holidays == {
+        date(2017, 1, 1),   # New Year
+        date(2017, 1, 2),   # New Year (Observed)
+        date(2017, 1, 6),   # Epiphany
+        date(2017, 4, 14),  # Good Friday
+        date(2017, 4, 17),  # Easter Monday
+        date(2017, 5, 1),   # May Day
+        date(2017, 5, 25),  # Ascension
+        date(2017, 6, 5),   # Whit Monday
+        date(2017, 6, 15),  # Corpus Christi
+        date(2017, 8, 15),  # Assumption
+        date(2017, 10, 3),  # Day of German Unity
+        date(2017, 10, 31),  # Reformation Day (500 anniversary in 2017)
+        date(2017, 11, 1),   # All Saints
+        date(2017, 11, 22),  # Day of Prayer & Repentance
+        date(2017, 12, 25),  # XMas Day
+        date(2017, 12, 26),  # XMas Day (Boxing)
+    }, "{}".format(cal.holidays(2017))
+
