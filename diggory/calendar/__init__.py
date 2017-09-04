@@ -1,7 +1,7 @@
 from .oceania import Australia, NewZealand
 from .canada import Canada
 from .europe import (
-    Belgium, Denmark, France, Germany, Netherlands, Poland, Spain, Sweden, UnitedKingdom
+    Belgium, Denmark, Finland, France, Germany, Netherlands, Poland, Spain, Sweden, UnitedKingdom
 )
 from .usa import UnitedStates
 
@@ -11,6 +11,7 @@ __all__ = (
     Canada,
     Belgium,
     Denmark,
+    Finland,
     France,
     Germany,
     Netherlands,

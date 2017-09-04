@@ -1,6 +1,7 @@
 from workalendar.core import WesternCalendar
 from workalendar.europe.belgium import Belgium as WorkalendarBelgium
 from workalendar.europe.denmark import Denmark
+from workalendar.europe.finland import Finland
 from workalendar.europe.france import France as WorkalendarFrance
 from workalendar.europe.germany import Saxony
 from workalendar.europe.netherlands import Netherlands as WorkalendarNetherlands
@@ -13,7 +14,7 @@ from .utils import ShiftMixin
 
 
 __all__ = (
-    'Belgium', 'Denmark', 'France', 'Germany', 'Netherlands', 'Poland',
+    'Belgium', 'Denmark', 'Finland', 'France', 'Germany', 'Netherlands', 'Poland',
     'Spain', 'Sweden', 'UnitedKingdom'
 )
 
