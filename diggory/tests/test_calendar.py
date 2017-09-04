@@ -8,6 +8,7 @@ from diggory.calendar import (
     Netherlands,
     NewZealand,
     Poland,
+    Spain,
     Sweden,
     UnitedKingdom,
     UnitedStates,
@@ -188,6 +189,25 @@ def test_poland_year_2017():
         date(2017, 11, 11),  # Independance Day
         date(2017, 12, 25),  # XMas Day
         date(2017, 12, 26),  # XMas Day (Boxing)
+    }, "{}".format(cal.holidays(2017))
+
+
+def test_spain_year_2017():
+    cal = Spain()
+    holidays = cal.holidays_set(2017)
+    assert holidays == {
+        date(2017, 1, 1),   # New Year
+        date(2017, 1, 2),   # New Year (observed)
+        date(2017, 1, 6),   # Epiphany
+        date(2017, 4, 13),  # Maundy Thursday
+        date(2017, 4, 14),  # Good Friday
+        date(2017, 5, 1),   # Labour Day
+        date(2017, 8, 15),  # Assumption
+        date(2017, 10, 12),  # Fiesta Nacional de Espana
+        date(2017, 11, 1),   # All saints
+        date(2017, 12, 6),   # Constitution Day
+        date(2017, 12, 8),   # Immaculate Conception
+        date(2017, 12, 25),  # XMas Day
     }, "{}".format(cal.holidays(2017))
 
 

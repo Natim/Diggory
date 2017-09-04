@@ -4,13 +4,17 @@ from workalendar.europe.france import France as WorkalendarFrance
 from workalendar.europe.germany import Saxony
 from workalendar.europe.netherlands import Netherlands as WorkalendarNetherlands
 from workalendar.europe.poland import Poland as WorkalendarPoland
+from workalendar.europe.spain import Spain as WorkalendarSpain
 from workalendar.europe.sweden import Sweden as WorkalendarSweden
 from workalendar.europe.united_kingdom import UnitedKingdom
 
 from .utils import ShiftMixin
 
 
-__all__ = ('Denmark', 'France', 'Germany', 'Netherlands', 'Poland', 'Sweden', 'UnitedKingdom')
+__all__ = (
+    'Denmark', 'France', 'Germany', 'Netherlands', 'Poland',
+    'Spain', 'Sweden', 'UnitedKingdom'
+)
 
 
 class France(WorkalendarFrance, ShiftMixin):
@@ -55,4 +59,9 @@ class Poland(WorkalendarPoland):
 
 
 class Sweden(WorkalendarSweden):
+    shift_new_years_day = True
+
+
+class Spain(WorkalendarSpain):
+    include_holy_thursday = True
     shift_new_years_day = True
