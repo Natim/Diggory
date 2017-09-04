@@ -5,6 +5,8 @@ from diggory.calendar import (
     Denmark,
     France,
     Germany,
+    Netherlands,
+    NewZealand,
     UnitedStates,
 )
 
@@ -132,3 +134,36 @@ def test_germany_year_2017():
         date(2017, 12, 26),  # XMas Day (Boxing)
     }, "{}".format(cal.holidays(2017))
 
+
+def test_netherlands_year_2017():
+    cal = Netherlands()
+    holidays = cal.holidays_set(2017)
+    assert holidays == {
+        date(2017, 1, 1),   # New Year
+        date(2017, 4, 14),  # Good Friday
+        date(2017, 4, 16),  # Easter
+        date(2017, 4, 17),  # Easter Monday
+        date(2017, 4, 27),  # King Birthday
+        date(2017, 5, 25),  # Ascension
+        date(2017, 6, 4),   # Whitsundays
+        date(2017, 6, 5),   # Whit Monday
+        date(2017, 12, 25),  # XMas Day
+        date(2017, 12, 26),  # XMas Day (Boxing)
+    }, "{}".format(cal.holidays(2017))
+
+
+def test_new_zealand_year_2017():
+    cal = NewZealand()
+    holidays = cal.holidays_set(2017)
+    assert holidays == {
+        date(2017, 1, 1),   # New Year
+        date(2017, 1, 2),   # New Year (observed)
+        date(2017, 2, 6),   # Waitangi Day
+        date(2017, 4, 14),  # Good Friday
+        date(2017, 4, 17),  # Easter Monday
+        date(2017, 4, 25),  # Anzac
+        date(2017, 6, 5),  # Queens Birthday
+        date(2017, 10, 23),  # Labour Day
+        date(2017, 12, 25),  # XMas Day
+        date(2017, 12, 26),  # XMas Day (Boxing)
+    }, "{}".format(cal.holidays(2017))

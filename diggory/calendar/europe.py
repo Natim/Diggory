@@ -1,10 +1,13 @@
+from workalendar.core import WesternCalendar
 from workalendar.europe.denmark import Denmark
 from workalendar.europe.france import France as WorkalendarFrance
 from workalendar.europe.germany import Saxony
+from workalendar.europe.netherlands import Netherlands as WorkalendarNetherlands
+
 from .utils import ShiftMixin
 
 
-__all__ = ('Denmark', 'France', 'Germany')
+__all__ = ('Denmark', 'France', 'Germany', 'Netherlands')
 
 
 class France(WorkalendarFrance, ShiftMixin):
@@ -33,3 +36,7 @@ class Germany(Saxony, ShiftMixin):
         days = super(Germany, self).get_calendar_holidays(year)
         days = self.shift(days, year)
         return days
+
+
+class Netherlands(WorkalendarNetherlands):
+    FIXED_HOLIDAYS = WesternCalendar.FIXED_HOLIDAYS
