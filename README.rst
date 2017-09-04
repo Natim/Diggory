@@ -10,7 +10,8 @@ Diggory
     :alt: Coverage
     :target: https://coveralls.io/r/Natim/Diggory
 
-*Diggory* is a web service that gives you information about the upcoming Holiday.
+*Diggory* is a web service that calculate automatically information
+about the upcoming Mozilla Holiday Worldwide.
 
 It uses the information from `workalendar <https://github.com/novafloss/workalendar>`_ to do so.
 
