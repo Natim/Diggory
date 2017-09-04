@@ -9,6 +9,7 @@ from diggory.calendar import (
     NewZealand,
     Poland,
     Sweden,
+    UnitedKingdom,
     UnitedStates,
 )
 
@@ -211,4 +212,21 @@ def test_sweden_year_2017():
         date(2017, 12, 25),  # XMas Day
         date(2017, 12, 26),  # XMas Day (Boxing)
         date(2017, 12, 31),  # New Year Eve's
+    }, "{}".format(cal.holidays(2017))
+
+
+def test_united_kingdom_year_2017():
+    cal = UnitedKingdom()
+    holidays = cal.holidays_set(2017)
+    assert holidays == {
+        date(2017, 1, 1),   # New Year
+        date(2017, 1, 2),   # New Year (observed)
+        date(2017, 4, 14),  # Good Friday
+        date(2017, 4, 16),  # Easter
+        date(2017, 4, 17),  # Easter Monday
+        date(2017, 5, 1),   # Early May Bank Holiday
+        date(2017, 5, 29),  # Spring Bank Holiday
+        date(2017, 8, 28),  # Summer Bank Holiday
+        date(2017, 12, 25),  # XMas Day
+        date(2017, 12, 26),  # XMas Day (Boxing)
     }, "{}".format(cal.holidays(2017))

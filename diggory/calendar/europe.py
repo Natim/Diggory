@@ -5,11 +5,12 @@ from workalendar.europe.germany import Saxony
 from workalendar.europe.netherlands import Netherlands as WorkalendarNetherlands
 from workalendar.europe.poland import Poland as WorkalendarPoland
 from workalendar.europe.sweden import Sweden as WorkalendarSweden
+from workalendar.europe.united_kingdom import UnitedKingdom
 
 from .utils import ShiftMixin
 
 
-__all__ = ('Denmark', 'France', 'Germany', 'Netherlands', 'Poland', 'Sweden')
+__all__ = ('Denmark', 'France', 'Germany', 'Netherlands', 'Poland', 'Sweden', 'UnitedKingdom')
 
 
 class France(WorkalendarFrance, ShiftMixin):
