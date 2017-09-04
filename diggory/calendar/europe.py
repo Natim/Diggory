@@ -3,11 +3,12 @@ from workalendar.europe.denmark import Denmark
 from workalendar.europe.france import France as WorkalendarFrance
 from workalendar.europe.germany import Saxony
 from workalendar.europe.netherlands import Netherlands as WorkalendarNetherlands
+from workalendar.europe.poland import Poland as WorkalendarPoland
 
 from .utils import ShiftMixin
 
 
-__all__ = ('Denmark', 'France', 'Germany', 'Netherlands')
+__all__ = ('Denmark', 'France', 'Germany', 'Netherlands', 'Poland')
 
 
 class France(WorkalendarFrance, ShiftMixin):
@@ -40,3 +41,12 @@ class Germany(Saxony, ShiftMixin):
 
 class Netherlands(WorkalendarNetherlands):
     FIXED_HOLIDAYS = WesternCalendar.FIXED_HOLIDAYS
+
+
+class Poland(WorkalendarPoland):
+    FIXED_HOLIDAYS = WesternCalendar.FIXED_HOLIDAYS + (
+        # (1, 6, 'Trzech Kroli'),  # Not a Mozilla Holiday
+        (5, 1, 'Labour Day'),
+        (5, 3, 'Constitution Day'),
+        (11, 11, 'Independence Day'),
+    )
