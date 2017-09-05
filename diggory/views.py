@@ -14,9 +14,9 @@ def get_holidays(request):
 
     holidays = {}
 
-    for name, klass in CALENDARS.items():
+    for name in sorted(CALENDARS.keys(), reversed=True):
         try:
-            cal = klass()
+            cal = CALENDARS[name]()
             country_holidays = cal.holidays(year)
         except Exception as e:
             print("{}".format(e))
