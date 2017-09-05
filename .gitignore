@@ -5,3 +5,8 @@
 .coverage
 .tox/
 .cache/
+package-lock.json
+build/
+elm-stuff/
+node_modules/
+public/app.js
