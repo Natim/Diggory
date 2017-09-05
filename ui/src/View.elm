@@ -1,5 +1,6 @@
 module View exposing (view)
 
+import Time.Date as Date exposing (Date)
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Types exposing (..)
@@ -17,7 +18,13 @@ mainView : Model -> Html Msg
 mainView model =
     div [ class "row" ]
         [ div [ class "col-sm-9" ]
-            [ spinner ]
+            [ case model.year of
+                Nothing ->
+                    spinner
+
+                Just year ->
+                    displayHolidays year model.holidays
+            ]
         ]
 
 
@@ -37,3 +44,59 @@ headerView model =
 spinner : Html Msg
 spinner =
     div [ class "loader" ] []
+
+
+displayHolidays : Int -> List Holiday -> Html Msg
+displayHolidays year holidays =
+    div []
+        [ h2 []
+            [ text <| toString year
+            , displayHolidaysPerMonth holidays |> ul []
+            ]
+        ]
+
+
+displayHolidaysPerMonth : List Holiday -> List (Html Msg)
+displayHolidaysPerMonth holidays =
+    [ displayMonth "January" 1 holidays
+    , displayMonth "February" 2 holidays
+    , displayMonth "March" 3 holidays
+    , displayMonth "April" 4 holidays
+    , displayMonth "May" 5 holidays
+    , displayMonth "June" 6 holidays
+    , displayMonth "July" 7 holidays
+    , displayMonth "August" 8 holidays
+    , displayMonth "September" 9 holidays
+    , displayMonth "October" 10 holidays
+    , displayMonth "November" 11 holidays
+    , displayMonth "December" 12 holidays
+    ]
+
+
+displayMonth : String -> Int -> List Holiday -> Html Msg
+displayMonth name month holidays =
+    li []
+        [ strong [] [ text name ]
+        , filterMonth month holidays
+            |> List.map displayHoliday
+            |> ul []
+        ]
+
+
+filterMonth : Int -> List Holiday -> List Holiday
+filterMonth month holidays =
+    List.filter (\h -> month == (Date.month h.date)) holidays
+
+
+displayHoliday : Holiday -> Html Msg
+displayHoliday holiday =
+    li []
+        [ strong [] [ text <| displayDate holiday.date ]
+        , text " : "
+        , a [ href "#", title <| String.join ", " holiday.countries ] [ text holiday.title ]
+        ]
+
+
+displayDate : Date -> String
+displayDate date =
+    (toString <| Date.day date)
