@@ -149,5 +149,8 @@ td {
 }
 
 ul {
+    font-size: 0.9em;
     list-style-type: none;
+    padding-top: 10px;
+    padding-bottom: 30px;
 }
