@@ -30,4 +30,4 @@ def get_holidays(request):
                     "countries": []
                 })
                 holidays[date_id]["countries"].append(name)
-    return {"data": sorted(holidays.values(), key=lambda t: t["date"])}
+    return {"holidays": sorted(holidays.values(), key=lambda t: t["date"]), "year": year}
