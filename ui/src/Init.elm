@@ -9,6 +9,7 @@ init : ( Model, Cmd Msg )
 init =
     { holidays = []
     , year = Nothing
+    , current_year = 0
     }
         ! [ now ]
 

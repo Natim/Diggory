@@ -15,10 +15,30 @@ update msg model =
                         year =
                             Date.year d
                     in
-                        { model | year = Just year } ! [ getHolidays year ]
+                        { model
+                            | year = Just year
+                            , current_year = year
+                        }
+                            ! [ getHolidays year ]
 
                 Nothing ->
                     { model | year = Nothing } ! []
+
+        ToggleYear ->
+            case model.year of
+                Nothing ->
+                    model ! []
+
+                Just year ->
+                    if year == model.current_year then
+                        let
+                            year =
+                                model.current_year + 1
+                        in
+                            { model | year = Just year } ! [ getHolidays year ]
+                    else
+                        { model | year = Just model.current_year }
+                            ! [ getHolidays model.current_year ]
 
         HolidaysFetched (Ok new_model) ->
             { model

@@ -3,6 +3,7 @@ module View exposing (view)
 import Time.Date as Date exposing (Date)
 import Html exposing (..)
 import Html.Attributes exposing (..)
+import Html.Events exposing (..)
 import Types exposing (..)
 
 
@@ -50,7 +51,7 @@ displayHolidays : Int -> List Holiday -> Html Msg
 displayHolidays year holidays =
     div []
         [ h2 []
-            [ strong [] [ text <| toString year ]
+            [ strong [ onClick ToggleYear ] [ text <| toString year ]
             , displayHolidaysPerMonth holidays |> div [ class "container-fluid" ]
             ]
         ]
@@ -59,19 +60,25 @@ displayHolidays year holidays =
 displayHolidaysPerMonth : List Holiday -> List (Html Msg)
 displayHolidaysPerMonth holidays =
     [ div [ class "row" ]
-        [ displayMonth "January" 1 holidays
+        [ h1 [] [ text "Q1" ]
+        , displayMonth "January" 1 holidays
         , displayMonth "February" 2 holidays
         , displayMonth "March" 3 holidays
-        , displayMonth "April" 4 holidays
         ]
     , div [ class "row" ]
-        [ displayMonth "May" 5 holidays
+        [ h1 [] [ text "Q2" ]
+        , displayMonth "April" 4 holidays
+        , displayMonth "May" 5 holidays
         , displayMonth "June" 6 holidays
+        ]
+    , div [ class "row" ]
+        [ h1 [] [ text "Q3" ]
         , displayMonth "July" 7 holidays
         , displayMonth "August" 8 holidays
+        , displayMonth "September" 9 holidays
         ]
     , div [ class "row" ]
-        [ displayMonth "September" 9 holidays
+        [ h1 [] [ text "Q4" ]
         , displayMonth "October" 10 holidays
         , displayMonth "November" 11 holidays
         , displayMonth "December" 12 holidays
@@ -81,7 +88,7 @@ displayHolidaysPerMonth holidays =
 
 displayMonth : String -> Int -> List Holiday -> Html Msg
 displayMonth name month holidays =
-    div [ class "col-md-3" ]
+    div [ class "col-md-4" ]
         [ h2 [] [ text name ]
         , filterMonth month holidays
             |> List.map displayHoliday

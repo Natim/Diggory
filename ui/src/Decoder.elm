@@ -15,9 +15,9 @@ holidayDecoder =
         |> required "countries" (list string)
 
 
-holidaysDecoder : Decoder Model
+holidaysDecoder : Decoder Holidays
 holidaysDecoder =
-    decode Model
+    decode Holidays
         |> required "holidays" (list holidayDecoder)
         |> optional "year" (map Just int) Nothing
 

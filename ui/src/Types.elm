@@ -5,15 +5,23 @@ import Time.Date
 import Http
 
 
-type alias Model =
+type alias Holidays =
     { holidays : List Holiday
     , year : Maybe Int
     }
 
 
+type alias Model =
+    { holidays : List Holiday
+    , year : Maybe Int
+    , current_year : Int
+    }
+
+
 type Msg
     = SetDate (Maybe Date.Date)
-    | HolidaysFetched (Result Http.Error Model)
+    | HolidaysFetched (Result Http.Error Holidays)
+    | ToggleYear
 
 
 type alias Holiday =
