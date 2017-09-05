@@ -29,5 +29,6 @@ def get_holidays(request):
                     "title": title,
                     "countries": []
                 })
-                holidays[date_id]["countries"].append(name)
+                if name not in holidays[date_id]["countries"]:
+                    holidays[date_id]["countries"].append(name)
     return {"holidays": sorted(holidays.values(), key=lambda t: t["date"]), "year": year}

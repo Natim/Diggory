@@ -17,7 +17,7 @@ view model =
 mainView : Model -> Html Msg
 mainView model =
     div [ class "row" ]
-        [ div [ class "col-sm-9" ]
+        [ div [ class "col-sm-12" ]
             [ case model.year of
                 Nothing ->
                     spinner
@@ -50,33 +50,39 @@ displayHolidays : Int -> List Holiday -> Html Msg
 displayHolidays year holidays =
     div []
         [ h2 []
-            [ text <| toString year
-            , displayHolidaysPerMonth holidays |> ul []
+            [ strong [] [ text <| toString year ]
+            , displayHolidaysPerMonth holidays |> div [ class "container-fluid" ]
             ]
         ]
 
 
 displayHolidaysPerMonth : List Holiday -> List (Html Msg)
 displayHolidaysPerMonth holidays =
-    [ displayMonth "January" 1 holidays
-    , displayMonth "February" 2 holidays
-    , displayMonth "March" 3 holidays
-    , displayMonth "April" 4 holidays
-    , displayMonth "May" 5 holidays
-    , displayMonth "June" 6 holidays
-    , displayMonth "July" 7 holidays
-    , displayMonth "August" 8 holidays
-    , displayMonth "September" 9 holidays
-    , displayMonth "October" 10 holidays
-    , displayMonth "November" 11 holidays
-    , displayMonth "December" 12 holidays
+    [ div [ class "row" ]
+        [ displayMonth "January" 1 holidays
+        , displayMonth "February" 2 holidays
+        , displayMonth "March" 3 holidays
+        , displayMonth "April" 4 holidays
+        ]
+    , div [ class "row" ]
+        [ displayMonth "May" 5 holidays
+        , displayMonth "June" 6 holidays
+        , displayMonth "July" 7 holidays
+        , displayMonth "August" 8 holidays
+        ]
+    , div [ class "row" ]
+        [ displayMonth "September" 9 holidays
+        , displayMonth "October" 10 holidays
+        , displayMonth "November" 11 holidays
+        , displayMonth "December" 12 holidays
+        ]
     ]
 
 
 displayMonth : String -> Int -> List Holiday -> Html Msg
 displayMonth name month holidays =
-    li []
-        [ strong [] [ text name ]
+    div [ class "col-md-3" ]
+        [ h2 [] [ text name ]
         , filterMonth month holidays
             |> List.map displayHoliday
             |> ul []

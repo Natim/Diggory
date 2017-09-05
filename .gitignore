@@ -9,4 +9,4 @@ package-lock.json
 build/
 elm-stuff/
 node_modules/
-public/app.js
+ui/public/app.js
